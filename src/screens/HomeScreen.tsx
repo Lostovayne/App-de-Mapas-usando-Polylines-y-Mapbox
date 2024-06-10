@@ -1,9 +1,11 @@
-import { MapView } from "../components";
+import { BtnMyLocation, MapView,ReactLogo } from "../components";
 
 export const HomeScreen = () => {
   return (
-    <div>
+    <div className="relative">
+      <BtnMyLocation />
       <MapView />
+      <ReactLogo />
     </div>
   );
 };

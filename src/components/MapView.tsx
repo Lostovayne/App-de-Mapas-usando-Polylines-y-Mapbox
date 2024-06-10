@@ -12,13 +12,16 @@ export const MapView = () => {
     if (!isLoading) {
       const map = new Map({
         container: mapDiv.current!,
-        style: "mapbox://styles/mapbox/streets-v11",
+        style: "mapbox://styles/mapbox/satellite-streets-v12",
         center: userLocation,
         zoom: 14,
+        boxZoom: true,
+        clickTolerance: 5,
+        maxTileCacheSize: 100 * 1024 * 1024,
       });
       setMap(map);
     }
-  },[ isLoading, userLocation ]);
+  }, [isLoading, userLocation]);
 
   if (isLoading) {
     return <Loading />;
