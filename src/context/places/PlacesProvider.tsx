@@ -2,6 +2,7 @@ import { useEffect, useReducer } from "react";
 import { PlacesContext } from "./PlacesContext";
 import { placesReducer } from "./placesReducer";
 import { getUserLocation } from "../../helpers";
+import { searchApi } from "../../apis";
 
 export interface PlacesState {
   isLoading: boolean;
@@ -26,10 +27,30 @@ export const PlacesProvider = ({ children }: Props) => {
     );
   }, []);
 
+  const searchPlacesByTerm = async (query: string) => {
+    if (query.length === 0) {
+      return []; // Todo: Limpiar el state
+    }
+
+    if (!state.userLocation) throw new Error("No hay userLocation");
+
+    const resp = await searchApi.get(`/forward?q=${query}`, {
+      params: {
+        proximity: state.userLocation.join(","),
+      },
+    });
+
+    console.log(resp.data);
+    return resp.data;
+  };
+
   return (
     <PlacesContext.Provider
       value={{
         ...state,
+
+        //Methods
+        searchPlacesByTerm,
       }}
     >
       {children}
