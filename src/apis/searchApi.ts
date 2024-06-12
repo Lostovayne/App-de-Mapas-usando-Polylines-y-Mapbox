@@ -1,6 +1,6 @@
 import axios from "axios";
 
- const searchApi = axios.create({
+const searchApi = axios.create({
   baseURL: "https://api.mapbox.com/search/geocode/v6",
   params: {
     limit: 5,
@@ -10,4 +10,4 @@ import axios from "axios";
   },
 });
 
-export default searchApi
+export default searchApi;

@@ -13,8 +13,8 @@ export const SearchBar = () => {
     }
 
     debouncedRef.current = setTimeout(() => {
-      console.log(event.target.value);
       searchPlacesByTerm(event.target.value);
+      
     }, 500);
   };
 
