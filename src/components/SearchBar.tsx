@@ -5,7 +5,7 @@ import { SearchResults } from "./SearchResults";
 // Start of Selection
 export const SearchBar = () => {
   const debouncedRef = useRef<ReturnType<typeof setTimeout>>();
-
+  const { places } = useContext(PlacesContext);
   const { searchPlacesByTerm } = useContext(PlacesContext);
 
   const onQueryChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +26,7 @@ export const SearchBar = () => {
         placeholder="Buscar dirección..."
         onChange={onQueryChanged}
       />
-      {debouncedRef.current && <SearchResults />}
+      {debouncedRef.current && places.length > 0 && <SearchResults />}
     </div>
   );
 };

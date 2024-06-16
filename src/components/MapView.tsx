@@ -14,7 +14,7 @@ export const MapView = () => {
         container: mapDiv.current!,
         style: "mapbox://styles/mapbox/satellite-streets-v12",
         center: userLocation,
-        zoom: 14,
+        zoom: 11,
         boxZoom: true,
         clickTolerance: 5,
         maxTileCacheSize: 100 * 1024 * 1024,

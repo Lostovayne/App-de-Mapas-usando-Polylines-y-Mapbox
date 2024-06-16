@@ -10,7 +10,7 @@ export const SearchResults = () => {
         <li className="list-group-item">Cargando...</li>
       ) : (
         places.map((place) => (
-          <li key={place.id} className="list-group px-4 py-2 list-group-item-action">
+          <li key={place.id} className="list-group px-4 py-2 list-group-item-action pointer">
             <h6>{place.properties.name_preferred}</h6>
             <p
               className="text-muted"

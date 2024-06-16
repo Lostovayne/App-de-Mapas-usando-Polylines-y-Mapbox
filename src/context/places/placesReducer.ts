@@ -27,7 +27,7 @@ export const placesReducer = (state: PlacesState, action: PlacesAction): PlacesS
         ...state,
         isLoadingPlaces: true,
         places: [],
-      };
+      }; 
 
     default:
       return state;
