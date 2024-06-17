@@ -20,7 +20,11 @@
   border-radius: 5px;
 }
 
-
 .pointer {
   cursor: pointer;
+}
+
+.active {
+  color: white;
+  background-color: rgba(118, 149, 250, 0.829);
 }
